@@ -67,6 +67,7 @@ func main() {
 	//app.SetLogger(web.NewStandardOutputLogger())
 
 	app.GET("/", func(rc *web.RequestContext) web.ControllerResult {
+		rc.Response.Header().Del("Vary")
 		return rc.JSON(map[string]string{"status": "ok!"})
 	})
 
