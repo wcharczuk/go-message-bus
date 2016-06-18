@@ -61,15 +61,18 @@ func verifyWebHook(action web.ControllerAction) web.ControllerAction {
 	}
 }
 
+var ok = map[string]string{"status": "ok!"}
+
+func root(rc *web.RequestContext) web.ControllerResult {
+	return rc.JSON(ok)
+}
+
 func main() {
 	app := web.New()
 	app.SetName("Message Bus")
 	//app.SetLogger(web.NewStandardOutputLogger())
 
-	app.GET("/", func(rc *web.RequestContext) web.ControllerResult {
-		rc.Response.Header().Del("Vary")
-		return rc.JSON(map[string]string{"status": "ok!"})
-	})
+	app.GET("/", root)
 
 	app.POST("/shopper", func(rc *web.RequestContext) web.ControllerResult {
 		var parsed map[string]interface{}
@@ -96,7 +99,7 @@ func main() {
 			return rc.API().InternalError(err)
 		}
 
-		return rc.JSON(map[string]string{"status": "ok!"})
+		return rc.JSON(ok)
 	}, verifyWebHook)
 
 	app.POST("/order", func(rc *web.RequestContext) web.ControllerResult {
@@ -124,7 +127,7 @@ func main() {
 			return rc.API().InternalError(err)
 		}
 
-		return rc.JSON(map[string]string{"status": "ok!"})
+		return rc.JSON(ok)
 	}, verifyWebHook)
 
 	log.Fatal(app.Start())
