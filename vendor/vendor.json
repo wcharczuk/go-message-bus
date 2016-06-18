@@ -1,0 +1,50 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"goVersion": "go1.6",
+	"heroku": {
+		"goVersion": "go1.6",
+		"install": [
+			"."
+		]
+	},
+	"package": [
+		{
+			"checksumSHA1": "VBwAtJoOqCuy19CVUPgtGHLqYvg=",
+			"path": "github.com/blendlabs/go-assert",
+			"revision": "818eedc5570589009f6d8804b4670b0a369fd9b4",
+			"revisionTime": "2016-03-23T23:33:47Z"
+		},
+		{
+			"checksumSHA1": "lAsqE8ZJ3titP59fFMt8jmx6BXY=",
+			"path": "github.com/blendlabs/go-exception",
+			"revision": "4f8219ce4d9bf0a7074e988fb5dc8d71d536db13",
+			"revisionTime": "2016-03-23T23:34:35Z"
+		},
+		{
+			"checksumSHA1": "oqDdDQF2OY2pzj4F3NdccjHyjh0=",
+			"path": "github.com/blendlabs/go-request",
+			"revision": "d99acfe45d6afdd681b86696523f66395e03af58",
+			"revisionTime": "2016-05-17T19:40:19Z"
+		},
+		{
+			"checksumSHA1": "gO7RbvXh/Cwpbtv61gs0sO4ZIFs=",
+			"path": "github.com/blendlabs/go-util",
+			"revision": "5b1aa355a232e003127a8e94667ab499062e5388",
+			"revisionTime": "2016-06-10T04:33:31Z"
+		},
+		{
+			"checksumSHA1": "mZK+4q1Xr8z0AwkCAgO+7Rb8xk8=",
+			"path": "github.com/julienschmidt/httprouter",
+			"revision": "77366a47451a56bb3ba682481eed85b64fea14e8",
+			"revisionTime": "2016-02-19T15:40:26Z"
+		},
+		{
+			"checksumSHA1": "mNRl5Ebq9BPTRnQ2r2hYUQ5mjNc=",
+			"path": "github.com/wcharczuk/go-web",
+			"revision": "3c37b6c1d05fac8ed0a99f0193a2433e43a3aed8",
+			"revisionTime": "2016-06-18T00:24:59Z"
+		}
+	],
+	"rootPath": "github.com/wcharczuk/message-bus"
+}
