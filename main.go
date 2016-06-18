@@ -64,7 +64,7 @@ func verifyWebHook(action web.ControllerAction) web.ControllerAction {
 func main() {
 	app := web.New()
 	app.SetName("Message Bus")
-	app.SetLogger(web.NewStandardOutputLogger())
+	//app.SetLogger(web.NewStandardOutputLogger())
 
 	app.GET("/", func(rc *web.RequestContext) web.ControllerResult {
 		return rc.JSON(map[string]string{"status": "ok!"})
