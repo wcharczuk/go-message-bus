@@ -70,7 +70,7 @@ func root(rc *web.RequestContext) web.ControllerResult {
 func main() {
 	app := web.New()
 	app.SetName("Message Bus")
-	//app.SetLogger(web.NewStandardOutputLogger())
+	app.SetLogger(web.NewStandardOutputLogger())
 
 	app.GET("/", root)
 
