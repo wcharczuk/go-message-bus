@@ -41,11 +41,13 @@ func verifyWebHook(action web.ControllerAction) web.ControllerAction {
 
 		shopifyHeader := rc.Request.Header.Get("HTTP_X_SHOPIFY_HMAC_SHA256")
 		if len(shopifyHeader) == 0 {
+			rc.Logger().Error("verifyHook::missing `HTTP_X_SHOPIFY_HMAC_SHA256` header.")
 			return rc.API().BadRequest("missing `HTTP_X_SHOPIFY_HMAC_SHA256` header.")
 		}
 
 		compare, err := base64.StdEncoding.DecodeString(shopifyHeader)
 		if err != nil {
+			rc.Logger().Errorf("verifyHook::base64.DecodeString() %v", err)
 			return rc.API().BadRequest(err.Error())
 		}
 
@@ -54,6 +56,7 @@ func verifyWebHook(action web.ControllerAction) web.ControllerAction {
 		shouldBe := enc.Sum(nil)
 
 		if !hmac.Equal(shouldBe, compare) {
+			rc.Logger().Error("verifyHook::invalid `HTTP_X_SHOPIFY_HMAC_SHA256` header.")
 			return rc.API().BadRequest("invalid `HTTP_X_SHOPIFY_HMAC_SHA256` header.")
 		}
 
